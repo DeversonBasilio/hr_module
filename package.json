@@ -1,0 +1,32 @@
+{
+  "name": "hr_module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --poll src/index.ts",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@eslint/json": "^0.13.1",
+    "@types/express": "^5.0.3",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "rimraf": "^6.0.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
+  },
+  "dependencies": {
+    "docker-compose": "^1.2.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0"
+  }
+}

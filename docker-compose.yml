@@ -1,0 +1,9 @@
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - ${APP_PORT}:3000
+      
