@@ -20,6 +20,7 @@
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
     "rimraf": "^6.0.1",
+    "sequelize-cli": "^6.6.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.0"
@@ -27,6 +28,9 @@
   "dependencies": {
     "docker-compose": "^1.2.0",
     "dotenv": "^17.2.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
   }
 }
