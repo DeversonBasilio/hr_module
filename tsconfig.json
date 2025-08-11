@@ -8,5 +8,6 @@
     "outDir": "dist",
     "rootDir": "./src"
   },
-  "lib": ["es2016"]  
+  "lib": ["es2016"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
