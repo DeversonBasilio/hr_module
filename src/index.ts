@@ -1,7 +1,7 @@
 import express, {Application, Request, Response} from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import { RegisterRoutes } from './routes/routes';
 
