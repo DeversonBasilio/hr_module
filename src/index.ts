@@ -1,25 +1,34 @@
-import express, {Request, Response} from 'express';
-import 'dotenv/config';
-import { Sequelize, Dialect  } from 'sequelize';
+import express, {Application, Request, Response} from 'express';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import dotenv from 'dotenv'
+import swaggerUi from 'swagger-ui-express';
+import { RegisterRoutes } from './routes/routes';
 
-require('dotenv').config();
-const app = express();
+dotenv.config();
+const app: Application = express();
 const port = process.env.APP_PORT || 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  const sequelize = new Sequelize(process.env.POSTGRES_DB, process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
-    host: process.env.POSTGRES_HOST,
-    port: process.env.POSTGRES_PORT ? parseInt(process.env.POSTGRES_PORT) : 5432,
-    dialect: process.env.POSTGRES_DIALECT as Dialect,
-  });
-  
-  sequelize.authenticate().then(() => {
-    res.send('Database connection established successfully!');
-  }).catch((error) => {
-    console.error('Unable to connect to the database:', error);
-    res.status(500).send('Database connection failed');
-  });
-});
+// Body parsing middleware
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(express.static('public'));
+
+// Serve swagger.json file statically
+app.use('/swagger', express.static('src/swagger'));
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(
+  undefined,
+  {
+    swaggerOptions: {
+      url: '/swagger/swagger.json',
+    },
+  }
+));
+
+RegisterRoutes(app);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

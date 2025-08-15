@@ -1,0 +1,16 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/controllers/**/*Controller.ts"],
+  "spec": {
+    "outputDirectory": "src/swagger",
+    "specVersion": 3,
+    "name": "HR Module API",
+    "description": "API documentation for HR Module",
+    "version": "1.0.0",
+    "basePath": ""
+  },
+  "routes": {
+    "routesDir": "src/routes"
+  }
+}
