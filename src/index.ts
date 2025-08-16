@@ -17,8 +17,7 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 
 // Serve swagger.json file statically
-app.use('/swagger', express.static('src/swagger'));
-
+app.use('/swagger', express.static('public/swagger'));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(
   undefined,
   {

@@ -14,6 +14,8 @@ RUN npm install
 # Copy source code
 COPY src ./src
 
+RUN mkdir -p public/swagger src/routes
+
 # Generate swagger and build
 RUN npm run swagger
 RUN npm run build
