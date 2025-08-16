@@ -6,7 +6,11 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": false,
+    "resolveJsonModule": true
   },
   "lib": ["es2016"],
   "exclude": ["node_modules", "**/*.spec.ts"]
